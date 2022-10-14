@@ -16,20 +16,41 @@ public class MathUtil {
     //quy uoc' ko co giai thua` a^m
     // 0! = 1! = 1
     //chi tinh n tu` 1 => 20
+    
+    //viết hàm tính giai thưa style đệ quy RECURSION
+    //LẶP LẠI CHÌNH MÌNH VỚI 1 QUY MÔ NHỎ HƠN
+    //n! = ~~~ RETURN N X (N - 1)!
+    //chữ giai thừa xuất hiện 2 lần
+    
     public static long getFactorial(int n) {
         //if n <0 va n > 20
         if (n < 0 || n > 20) {
             throw new IllegalArgumentException("Invalid n. N must be between 0 -> 20");
         }
         if (n == 0 || n == 1) {
-            return 1;
+            return 1; //chốt dừng đệ quy
         }
-        long product = 1;
-        for (int i = 2; i <= n; i++) {
-            product *= i;
-        }
-        return product;
+        
+        //từ 2 giai thừa là đoạn code dưới đây
+        return n * getFactorial(n - 1);
+        //mình = mình x quy mô nhỏ hơn
     }
+    
+//    public static long getFactorial(int n) {
+//        //if n <0 va n > 20
+//        if (n < 0 || n > 20) {
+//            throw new IllegalArgumentException("Invalid n. N must be between 0 -> 20");
+//        }
+//        if (n == 0 || n == 1) {
+//            return 1;
+//        }
+//        long product = 1;
+//        for (int i = 2; i <= n; i++) {
+//            product *= i;
+//        }
+//        return product;
+//    }
+
 
 //hoc ki thuat viet code dc goi la` TDD (test driven development)
 //la` ki~ thuat ngay khi viet code. ngay khi thiet ke ra ten^ ham`/class
